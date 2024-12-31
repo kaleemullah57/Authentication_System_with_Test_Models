@@ -56,6 +56,20 @@ namespace Authentication_System_with_Test_Models.Authentication_Folders.Reposito
 
 
 
+        public async Task<int> GetCountAllUsers()
+        {
+            var parameters = new DynamicParameters();
+            const string storedProcedure = "CountAllRegisteredUsers";
+
+            return await _connection.ExecuteScalarAsync<int>(
+                storedProcedure,
+                parameters,
+                commandType: CommandType.StoredProcedure
+                );
+        }
+
+
+
 
 
 

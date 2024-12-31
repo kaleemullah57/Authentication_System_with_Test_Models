@@ -1,4 +1,5 @@
 ﻿using Authentication_System_with_Test_Models.Authentication_Folders.Auth_Models.User_Models;
+using Authentication_System_with_Test_Models.Authentication_Folders.Repositories;
 using Authentication_System_with_Test_Models.Resume_Details_Folder.Final_Resume_Model;
 using Authentication_System_with_Test_Models.Resume_Details_Folder.Interfaces;
 using Authentication_System_with_Test_Models.Resume_Details_Folder.Models;
@@ -19,11 +20,32 @@ namespace Authentication_System_with_Test_Models.Controllers
     {
         private readonly FinalResumeService _service;
         private readonly IFinalResumeInterface _interface;
+        private readonly UserRepository _userRepository;
 
-        public FinalResumeController(FinalResumeService finalResumeService, IFinalResumeInterface finalResumeInterface)
+        public FinalResumeController(FinalResumeService finalResumeService, IFinalResumeInterface finalResumeInterface, UserRepository userRepository)
         {
             _service = finalResumeService;
             _interface = finalResumeInterface;
+            _userRepository = userRepository;
+        }
+
+
+
+
+
+        // Get All Registered Users 
+        [HttpGet("GetAllRegisteredUsers")]
+        public async Task<IActionResult> GetAllRegisteredUsers()
+        {
+            try
+            {
+                int userCount = await _userRepository.GetCountAllUsers();
+                return Ok(userCount);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
 
