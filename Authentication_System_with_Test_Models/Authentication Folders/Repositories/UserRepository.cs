@@ -40,7 +40,7 @@ namespace Authentication_System_with_Test_Models.Authentication_Folders.Reposito
         //}
 
 
-
+        // Get User By Email. 
         public async Task<User> GetUserByEmail(string email)
         {
             var parameters = new DynamicParameters();
@@ -56,6 +56,8 @@ namespace Authentication_System_with_Test_Models.Authentication_Folders.Reposito
 
 
 
+
+        // Count Registered Users
         public async Task<int> GetCountAllUsers()
         {
             var parameters = new DynamicParameters();

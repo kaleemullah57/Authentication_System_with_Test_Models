@@ -33,7 +33,7 @@ namespace Authentication_System_with_Test_Models.Controllers
 
 
 
-        // Get All Registered Users 
+        // Get Count All Registered Users 
         [HttpGet("GetAllRegisteredUsers")]
         public async Task<IActionResult> GetAllRegisteredUsers()
         {
