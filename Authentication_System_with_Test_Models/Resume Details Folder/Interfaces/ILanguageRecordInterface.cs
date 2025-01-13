@@ -7,5 +7,6 @@ namespace Authentication_System_with_Test_Models.Resume_Details_Folder.Interface
         Task AddLanguageRecordAsync(int Id, int PersonalRecordId, LanguageModel languageModel);
         //Task<LanguageModel> GetLanguageRecordById(int Id);
         Task <bool> UpdateLanguageRecordAsync (int Id, int PersonalRecordId, LanguageModel languageModel);
+        Task<bool> DeleteLanguage(int PersonalRecordId, int LanguageId);
     }
 }

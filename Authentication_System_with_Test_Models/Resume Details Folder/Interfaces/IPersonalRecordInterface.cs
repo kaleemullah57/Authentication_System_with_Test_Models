@@ -5,7 +5,7 @@ namespace Authentication_System_with_Test_Models.Resume_Details_Folder.Interface
 {
     public interface IPersonalRecordInterface
     {
-        Task<int> AddPersonalRecodAsync (int id, PersonalRecordModel personalRecord);
+        Task<int> AddPersonalRecodAsync (int id, PersonalRecordModel personalRecordz);
         //Task<PersonalRecordModel> GetPersonalRecordById(int Id);
     }
 }

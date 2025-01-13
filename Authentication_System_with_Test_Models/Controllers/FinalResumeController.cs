@@ -128,7 +128,7 @@ namespace Authentication_System_with_Test_Models.Controllers
             var result = await _service.DeleteOnlyEducationRecord(EducationId, PersonalRecordId);
             return Ok(result);
         }
-
+        
 
 
 
@@ -148,6 +148,21 @@ namespace Authentication_System_with_Test_Models.Controllers
         }
 
 
+        // Delete Experience Record By Id
+        [HttpDelete("DeleteExperinceRecordById/{PersonalRecordId}/{ExperienceId}")]
+        public async Task<IActionResult> DeleteExperienceRecordById(int Id, int PersonalRecordId, int ExperienceId)
+        {
+            var idclaim = User.FindFirst("Id");
+            if(idclaim == null)
+            {
+                return Unauthorized(" User is Unauthorized");
+            }
+            int id = int.Parse(idclaim.Value);
+            var result = await _service.DeleteExperinceRecordById(PersonalRecordId, ExperienceId);
+            return Ok(result);
+        }
+
+
 
 
         // Update Extra Education Record
@@ -161,6 +176,21 @@ namespace Authentication_System_with_Test_Models.Controllers
             }
             var result = await _service.UpdateExtraEducationRecord(Id, personalRecordId, extraEducationModel);
             return Ok(result);
+        }
+
+        // Delete Extra Education Record By Id
+        [HttpDelete("DeleteExtraEducationRecordById/{PersonalRecordId}/{ExEducationId}")]
+        public async Task<IActionResult> DeleteExtraEducationRecordById(int PersonalRecordId, int ExEducationId)
+        {
+            var idclaim = User.FindFirst("Id");
+            if( idclaim == null)
+            {
+                return Unauthorized("User Not Authorized");
+            }
+            int id = int.Parse(idclaim.Value);
+            var result = await _service.DeleteExtraEducationRecordById(PersonalRecordId, ExEducationId);
+            return Ok(result);
+
         }
 
 
@@ -179,6 +209,20 @@ namespace Authentication_System_with_Test_Models.Controllers
             return Ok(result);
         }
 
+        // Delete Skill Record ById
+        [HttpDelete("DeleteSkillRecord/{PersonalRecordId}/{SkillId}")]
+        public async Task<IActionResult> DeleteSkillRecordById(int PersonalRecordId, int SkillId)
+        {
+            var idclaim = User.FindFirst("Id");
+            if (idclaim == null)
+            {
+                return Unauthorized("User Not Authorized");
+            }
+            int id = int.Parse(idclaim.Value);
+            var isDeleted = await _service.DeleteSkillRecordById(PersonalRecordId, SkillId);
+            return Ok(isDeleted);
+        }
+
 
 
 
@@ -195,6 +239,31 @@ namespace Authentication_System_with_Test_Models.Controllers
             var result = await _service.UpdateLanguageRecordAsync(Id, PersonalRecordId, languageModel);
             return Ok(result);
         }
+
+        // Delete Language Record 
+        [HttpDelete("DeleteLanguageRecord/{PersonalRecordId}/{LanguageId}")]
+        public async Task<IActionResult> DeleteLanguageRecord (int PersonalRecordId, int LanguageId)
+        {
+            var idclaim = User.FindFirst("Id");
+            if (idclaim == null)
+            {
+                return Unauthorized("User Not Authorized");
+            }
+            int id = int.Parse(idclaim.Value);
+            var isDeleted = await _service.Delete_Language_Record(PersonalRecordId, LanguageId);
+            return Ok(isDeleted);
+        }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

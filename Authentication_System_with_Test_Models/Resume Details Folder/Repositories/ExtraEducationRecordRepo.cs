@@ -25,6 +25,17 @@ namespace Authentication_System_with_Test_Models.Resume_Details_Folder.Repositor
             await _connection.ExecuteAsync("AddExEduRecordss", parameters, commandType: CommandType.StoredProcedure);
         }
 
+        public async Task<bool> DeleteExtraEducationRecordById(int PersonalRecordId, int ExEducationId)
+        {
+            var parameters = new { PersonalRecordId = PersonalRecordId, ExEducationId = ExEducationId };
+            var result = await _connection.ExecuteAsync(
+                "DeleteExtraEducationRecordById",
+                parameters,
+                commandType: CommandType.StoredProcedure
+                );
+            return result > 0;
+        }
+
         public async Task<bool> UpdateExtraEducationRecordAsync(int Id, int PersonalRecordId, ExtraEducationModel extraEducationModel)
         {
             var parameters = new

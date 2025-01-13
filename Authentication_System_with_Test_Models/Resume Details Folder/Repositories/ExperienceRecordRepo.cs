@@ -25,6 +25,17 @@ namespace Authentication_System_with_Test_Models.Resume_Details_Folder.Repositor
             await _connection.ExecuteAsync("AddExperienceRecordss", parameters, commandType: CommandType.StoredProcedure);
         }
 
+        public async Task<bool> DeleteExperienceRecordById(int PersonalRecordId, int ExperienceId)
+        {
+            var parameters = new {PersonalRecordId = PersonalRecordId, ExperienceId = ExperienceId};
+            var result = await _connection.ExecuteAsync(
+                "DeleteExperienceRecordById",
+                parameters,
+                commandType: CommandType.StoredProcedure
+                );
+            return result > 0;
+        }
+
         public async Task<bool> UpdateExperienceRecord(int Id, int PersonalRecordId, ExperienceRecordModel experienceRecordModel)
         {
             var parameters = new

@@ -120,6 +120,13 @@ namespace Authentication_System_with_Test_Models.Resume_Details_Folder.Services
             return isUpdated;
         }   
 
+        // Delete Experince Record By Id
+        public async Task<bool> DeleteExperinceRecordById(int PersonalRecordId, int ExperienceId)
+        {
+            var isDeletedd = await _experienceRecord.DeleteExperienceRecordById(PersonalRecordId, ExperienceId);
+            return isDeletedd;
+        }
+
 
 
 
@@ -128,6 +135,13 @@ namespace Authentication_System_with_Test_Models.Resume_Details_Folder.Services
         {
             var isUpdated = await _extraEducationRecord.UpdateExtraEducationRecordAsync(Id, PersonalRecordId, extraEducationModel);
             return isUpdated;
+        }
+
+        // Delete Extra Education Record
+        public async Task<bool> DeleteExtraEducationRecordById (int PersonalRecordId, int ExEducationId)
+        {
+            var isDeleted = await _extraEducationRecord.DeleteExtraEducationRecordById(PersonalRecordId, ExEducationId);
+            return isDeleted;
         }
 
 
@@ -139,6 +153,13 @@ namespace Authentication_System_with_Test_Models.Resume_Details_Folder.Services
             return isUpdate;
         }
 
+        // Delete Skill Record ById
+        public async Task<bool> DeleteSkillRecordById(int  PersonalRecordId, int SkillId)
+        {
+            var isDeleted = await _skillsRecord.DeleteSkillsRecordById(PersonalRecordId, SkillId);
+            return isDeleted;
+        }
+
 
 
 
@@ -147,6 +168,13 @@ namespace Authentication_System_with_Test_Models.Resume_Details_Folder.Services
         {
             var isUpdated = await _languageRecord.UpdateLanguageRecordAsync(Id, PersonalRecordId, languageModel); ;
             return isUpdated;
+        }
+
+        // Delete Language Record
+        public async Task<bool> Delete_Language_Record (int PersonalRecordId, int LanguageId)
+        {
+            var isDeleted = await _languageRecord.DeleteLanguage(PersonalRecordId, LanguageId);
+            return isDeleted;
         }
 
 
