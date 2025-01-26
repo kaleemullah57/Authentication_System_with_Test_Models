@@ -64,5 +64,5 @@ namespace Authentication_System_with_Test_Models.Authentication_Folders.Auth_Ser
             // Call GenerateJwtToken instead of GenerateToken
             return _jwthelper.GenerateJwtToken(user);
         }
-    }
+    } 
 }

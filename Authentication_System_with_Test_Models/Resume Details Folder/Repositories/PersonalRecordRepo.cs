@@ -28,18 +28,5 @@ namespace Authentication_System_with_Test_Models.Resume_Details_Folder.Repositor
 
              return await _dbConnection.ExecuteScalarAsync<int>("AddPersonalRecordss", parameters, commandType:CommandType.StoredProcedure);
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }

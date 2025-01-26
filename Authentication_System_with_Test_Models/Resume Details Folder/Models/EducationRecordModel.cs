@@ -6,6 +6,7 @@
         public string Degree     { get; set; } = string.Empty;
         public string Institute  { get; set; } = string.Empty;
         public string YearOfCompletion { get; set; } = string.Empty;
+        public string GPA { get; set; } = string.Empty;
         public int PersonalRecordId { get; set; }
         public int Id { get; set; }
     }

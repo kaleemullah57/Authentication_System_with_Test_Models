@@ -21,6 +21,7 @@ namespace Authentication_System_with_Test_Models.Resume_Details_Folder.Repositor
             parameters.Add("Degree", EducationRecordModel.Degree);
             parameters.Add("Institute", EducationRecordModel.Institute);
             parameters.Add("YearOfCompletion", EducationRecordModel.YearOfCompletion);
+            parameters.Add("GPA", EducationRecordModel.GPA);
 
             await _connection.ExecuteAsync("AddEducationRecordagain", parameters, commandType:CommandType.StoredProcedure);
         }
@@ -45,7 +46,8 @@ namespace Authentication_System_with_Test_Models.Resume_Details_Folder.Repositor
                 EducationId = educationRecordModel.EducationId,
                 Degree = educationRecordModel.Degree,
                 Institute = educationRecordModel.Institute,
-                YearOfCompletion = educationRecordModel.YearOfCompletion
+                YearOfCompletion = educationRecordModel.YearOfCompletion,
+                GPA = educationRecordModel.GPA
             };
             var result = await _connection.ExecuteAsync(
                 "UpdateEducationRecords",

@@ -20,6 +20,9 @@ namespace Authentication_System_with_Test_Models.Resume_Details_Folder.Repositor
             parameters.Add("PersonalRecordId", PersonalRecordId);
             parameters.Add("JobTitle", ExperienceRecordModel.JobTitle);
             parameters.Add("Location", ExperienceRecordModel.Location);
+            parameters.Add("Role", ExperienceRecordModel.Role);
+            parameters.Add("Description", ExperienceRecordModel.Description);
+            parameters.Add("Technologies", ExperienceRecordModel.Technologies);
             parameters.Add("YearsOfExperience", ExperienceRecordModel.YearsOfExperience);
 
             await _connection.ExecuteAsync("AddExperienceRecordss", parameters, commandType: CommandType.StoredProcedure);
@@ -44,6 +47,9 @@ namespace Authentication_System_with_Test_Models.Resume_Details_Folder.Repositor
                 PersonalRecordId = PersonalRecordId,
                 JobTitle = experienceRecordModel.JobTitle,
                 Location = experienceRecordModel.Location,
+                Role = experienceRecordModel.Role,
+                Description = experienceRecordModel.Description,
+                Technologies = experienceRecordModel.Technologies,
                 YearsOfExperience = experienceRecordModel.YearsOfExperience,
                 ExperienceId = experienceRecordModel.ExperienceId
             };
